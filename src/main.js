@@ -1,24 +1,39 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+const navLinks = document.querySelectorAll(".nav-menu .nav-link");
+const menuOpenButton = document.getElementById("menu-open-button");
+const menuCloseButton = document.getElementById("menu-close-button");
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+menuOpenButton.addEventListener("click", () => {
+  document.body.classList.toggle("show-mobile-menu");
+});
 
-setupCounter(document.querySelector('#counter'))
+menuCloseButton.addEventListener("click", () => menuOpenButton.click());
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => menuOpenButton.click());
+});
+
+const swiper = new Swiper('.slider-wrapper', {
+  loop: true,
+  grabCursor: true,
+  spacesBetween: 25,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    dynamicBullets: true
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1
+    },
+    768: {
+      slidesPerView: 2
+    },
+    1024: {
+      slidesPerView: 3
+    }
+  }
+});
