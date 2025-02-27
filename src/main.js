@@ -12,28 +12,43 @@ navLinks.forEach((link) => {
   link.addEventListener("click", () => menuOpenButton.click());
 });
 
-const swiper = new Swiper('.slider-wrapper', {
-  loop: true,
+// const swiper = new Swiper('.slider-wrapper', {
+//   loop: true,
+//   grabCursor: true,
+//   spacesBetween: 25,
+//   pagination: {
+//     el: '.swiper-pagination',
+//     clickable: true,
+//     dynamicBullets: true
+//   },
+//   navigation: {
+//     nextEl: '.swiper-button-next',
+//     prevEl: '.swiper-button-prev'
+//   },
+//   breakpoints: {
+//     0: {
+//       slidesPerView: 1
+//     },
+//     768: {
+//       slidesPerView: 2
+//     },
+//     1024: {
+//       slidesPerView: 3
+//     }
+//   }
+// });
+
+var swiper = new Swiper(".mySwiper", {
+  effect: "coverflow",
   grabCursor: true,
-  spacesBetween: 25,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-    dynamicBullets: true
+  centeredSlides: true,
+  slidesPerView: "auto",
+  coverflowEffect: {
+    rotate:15,
+    stretch:0,
+    depth:300,
+    modifier:1,
+    slideShadows: true,
   },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
-  },
-  breakpoints: {
-    0: {
-      slidesPerView: 1
-    },
-    768: {
-      slidesPerView: 2
-    },
-    1024: {
-      slidesPerView: 3
-    }
-  }
+  loop:true,
 });
